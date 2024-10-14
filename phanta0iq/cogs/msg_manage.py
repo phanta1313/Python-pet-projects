@@ -18,7 +18,7 @@ class MessageManager(commands.Cog):
     
     @commands.Cog.listener()
     async def on_member_join(self, member: disnake.Member):
-        welcome_channel_id = 1066044077377855613  
+        welcome_channel_id = 1295386052151873582  
         channel = self.bot.get_channel(welcome_channel_id)
         
         if channel is not None:
@@ -39,7 +39,10 @@ class MessageManager(commands.Cog):
         for word in message.content.split():
             if word.lower() in BAD_WORDS.lower().split():
                 await message.channel.send(f'{message.author.mention} ай ай что за слова такие!\n{shikimori_shocked_gif}')
-    
+
+        if self.bot.user in message.mentions:
+            await message.channel.send('НЕ ТЫКАЙТЕ В МЕНЯ!!!')
+
     @commands.slash_command(description="скажи что нибудь через меня")
     async def say(self, ctx, message, user: disnake.User):
         await ctx.send(f'{user.mention} {message}')

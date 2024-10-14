@@ -11,7 +11,7 @@ intents = disnake.Intents.all()
 intents.messages = True
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='!', intents=intents, test_guilds=[1066044077377855610])
+bot = commands.Bot(command_prefix='!', intents=intents, test_guilds=[1295386052151873577])
 
 @bot.event
 async def on_ready():

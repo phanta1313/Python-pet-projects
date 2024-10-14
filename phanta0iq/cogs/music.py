@@ -1,6 +1,6 @@
 import disnake
 from disnake.ext import commands
-from yt_dlp import YoutubeDL
+# from yt_dlp import YoutubeDL
 
 YDL_OPTIONS = {'format': 'bestaudio/best', 'noplaylist': True, 'quiet': False}
 FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
@@ -11,7 +11,6 @@ class Music(commands.Cog):
 
     @commands.slash_command(description='Воспроизвести аудио из YouTube(пока работает только с локальными аудио)')
     async def play(self, ctx):
-        # Отправляем предварительный ответ
         await ctx.response.defer()
 
         if ctx.author.voice is None:
